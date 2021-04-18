@@ -1,11 +1,10 @@
 {
-  "name": "react-parcel-template",
+  "name": "a2-exploratory-data-analysis",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url https://alycianguyenn.github.io/react-parcel-template/; rm -rf docs; mv dist docs;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alycia Nguyen",
