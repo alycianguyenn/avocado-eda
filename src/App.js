@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetch } from "./hooks/useFetch";
 // import { csv } from "d3-fetch";
-import { VegaLite } from 'react-vega';
+import { Vega, VegaLite } from 'react-vega';
 
 const viewHeight = 500;
 const viewWidth = 500;
@@ -114,6 +114,29 @@ const App = () => {
           }
         }
       }
+    
+    const visFourSpec =  {
+        // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        title: "How does the number of avocados sold change throughout a year?",
+        width: 500,
+        height: 500,
+        description: "Avocado sales over a year",
+        data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+        mark: "line",
+        encoding: {
+          x: {
+            field: "Date", 
+            timeUnit: "month",
+            type: "temporal",
+            axis: {tickCount: "month"}
+          },
+          y: {
+            aggregate: "sum", 
+            field: "Total Volume",
+            title: "Number of avocados sold"
+          }
+        }
+      }
 
     return (
         <div className="w-75 px-sm-5 py-5">
@@ -193,7 +216,13 @@ const App = () => {
                     temporal time measurement, but this made me think about another time measurement: month. So, I think
                     that analyzing the graph for month could show trends that imply there are more avocado sales
                     throughout seasons.
-                    {/* VIS #4 */}
+                </p>
+                {/* VIS #4 */}
+                <VegaLite spec={visFourSpec} />
+                <p>
+                    After observing this graph, it seems that my suspicions about seasons could be correct, since a quick
+                    Google search showed that January - March are the seasons when avocados "taste best", and the graph presents
+                    that there are the highest avocado sales in January - March!
                 </p>
             </div>
             <div>
@@ -219,7 +248,7 @@ const App = () => {
                     Although this visualization showed a negative change over time and a negative relationship, I think that the
                     prices being averaged is generalizing the price attribute too much, and price could be swayed by the how 
                     big an avocado is- namely the size of the avocado. So, this leads me to another follow up question:
-                    <h5 className="py-2 px-3">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
+                    <h5 className="py-2">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
                     {/* VIS #7 */}
                     {/* scatter with color? */}
                 </p>

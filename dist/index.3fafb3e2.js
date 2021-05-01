@@ -26398,34 +26398,60 @@ try {
         }
       }
     };
+    const visFourSpec = {
+      // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      title: "How does the number of avocados sold change throughout a year?",
+      width: 500,
+      height: 500,
+      description: "Avocado sales over a year",
+      data: {
+        "url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"
+      },
+      mark: "line",
+      encoding: {
+        x: {
+          field: "Date",
+          timeUnit: "month",
+          type: "temporal",
+          axis: {
+            tickCount: "month"
+          }
+        },
+        y: {
+          aggregate: "sum",
+          field: "Total Volume",
+          title: "Number of avocados sold"
+        }
+      }
+    };
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
         className: "w-75 px-sm-5 py-5",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119,
+          lineNumber: 142,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120,
+          lineNumber: 143,
           columnNumber: 13
         }
       }, "Assignment 2: Avocado Data Exploratory Analysis"), /*#__PURE__*/_reactDefault.default.createElement("h2", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121,
+          lineNumber: 144,
           columnNumber: 13
         }
       }, "Alycia Nguyen - INFO 474 - Spring 2021"), /*#__PURE__*/_reactDefault.default.createElement("span", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122,
+          lineNumber: 145,
           columnNumber: 13
         }
       }, "Reference:", /*#__PURE__*/_reactDefault.default.createElement("a", {
@@ -26433,35 +26459,35 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124,
+          lineNumber: 147,
           columnNumber: 17
         }
       }, " Avocado Dataset")), /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126,
+          lineNumber: 149,
           columnNumber: 13
         }
       }, "Avocado Dataset Overview:"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127,
+          lineNumber: 150,
           columnNumber: 13
         }
       }, "This dataset provides records for Hass avocado sales from 2015 - 1018. Being an avocado lover, I was undoubtedly interested in this dataset. I thought it would be interesting to analyze aspects such as how prices can affect the sales for avocados, the distribution of avocado sales throughout different regions, how sales could change over time, etc. Overall, the dataset provides many measurements and categories that make it a fantastic source for exploration! The most significant attributes that caught my eye during my first impression of the dataset are:"), /*#__PURE__*/_reactDefault.default.createElement("ul", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135,
+          lineNumber: 158,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136,
+          lineNumber: 159,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26469,7 +26495,7 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137,
+          lineNumber: 160,
           columnNumber: 21
         }
       }, "4046"), ", ", /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26477,7 +26503,7 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137,
+          lineNumber: 160,
           columnNumber: 69
         }
       }, "4225"), " and", /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26485,14 +26511,14 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138,
+          lineNumber: 161,
           columnNumber: 21
         }
       }, " 4770"), ": These 3 variables in the dataset each represent a quantitative value for the number of avocados sold with the respective Product Lookup Code (PLU). 4046 is associated with small avocados, 4225 with large avocados, and 4770 with extra large avocados."), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142,
+          lineNumber: 165,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26500,14 +26526,14 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143,
+          lineNumber: 166,
           columnNumber: 21
         }
       }, "Type:"), " Nominal / categorical variable refering to whether the avocados sold were organic or conventional."), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146,
+          lineNumber: 169,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26515,63 +26541,63 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147,
+          lineNumber: 170,
           columnNumber: 21
         }
       }, "Region"), ": This identifies a location for where avocados were sold.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150,
+          lineNumber: 173,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151,
+          lineNumber: 174,
           columnNumber: 17
         }
       }, "Initial Analysis Questions:"), /*#__PURE__*/_reactDefault.default.createElement("ul", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152,
+          lineNumber: 175,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153,
+          lineNumber: 176,
           columnNumber: 21
         }
       }, "How has the number of avocados sold changed throughout the years?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154,
+          lineNumber: 177,
           columnNumber: 21
         }
       }, "What is the most popular size of avocado?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155,
+          lineNumber: 178,
           columnNumber: 21
         }
       }, "What type of avocado was sold most?"))), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158,
+          lineNumber: 181,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161,
+          lineNumber: 184,
           columnNumber: 17
         }
       }, "How has the number of avocados sold changed throughout the years?"), /*#__PURE__*/_reactDefault.default.createElement(_reactVega.VegaLite, {
@@ -26579,21 +26605,21 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162,
+          lineNumber: 185,
           columnNumber: 17
         }
       })), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164,
+          lineNumber: 187,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166,
+          lineNumber: 189,
           columnNumber: 17
         }
       }, "What is the most popular size of avocado?"), /*#__PURE__*/_reactDefault.default.createElement(_reactVega.VegaLite, {
@@ -26602,21 +26628,21 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167,
+          lineNumber: 190,
           columnNumber: 17
         }
       })), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169,
+          lineNumber: 192,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 171,
+          lineNumber: 194,
           columnNumber: 17
         }
       }, "What type of avocado was sold most?"), /*#__PURE__*/_reactDefault.default.createElement(_reactVega.VegaLite, {
@@ -26624,84 +26650,84 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172,
+          lineNumber: 195,
           columnNumber: 17
         }
       })), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174,
+          lineNumber: 197,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175,
+          lineNumber: 198,
           columnNumber: 17
         }
       }, "Add-On Questions:"), /*#__PURE__*/_reactDefault.default.createElement("ul", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176,
+          lineNumber: 199,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177,
+          lineNumber: 200,
           columnNumber: 21
         }
       }, "How does the number of avocados sold change throughout a year?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178,
+          lineNumber: 201,
           columnNumber: 21
         }
       }, "How has price affected the number of avocados sold? For the types of avocados?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 179,
+          lineNumber: 202,
           columnNumber: 21
         }
       }, "What type of avocados is most popular in each region?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180,
+          lineNumber: 203,
           columnNumber: 21
         }
       }, "How have the number of sold avocados changed between the different sizes of avocados?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181,
+          lineNumber: 204,
           columnNumber: 21
         }
       }, "How has the number sold for the types of avocados changed throughout the years?"))), /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 184,
+          lineNumber: 207,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185,
+          lineNumber: 208,
           columnNumber: 17
         }
       }, "How does the number of avocados sold change throughout a year?"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 186,
+          lineNumber: 209,
           columnNumber: 17
         }
       }, "This question stemmed from curiosity from the question from vis #1: ", /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26709,35 +26735,50 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 187,
+          lineNumber: 210,
           columnNumber: 89
         }
       }, "How has the number of avocados sold changed throughout the years?")), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190,
+          lineNumber: 213,
           columnNumber: 17
         }
-      }, "Looking at the result from the initial analysis question, it seems like the sales for the Hass avocados have decreased over time from 2014-2017. The visualization for this used \"year\" as the temporal time measurement, but this made me think about another time measurement: month. So, I think that analyzing the graph for month could show trends that imply there are more avocado sales throughout seasons.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+      }, "Looking at the result from the initial analysis question, it seems like the sales for the Hass avocados have decreased over time from 2014-2017. The visualization for this used \"year\" as the temporal time measurement, but this made me think about another time measurement: month. So, I think that analyzing the graph for month could show trends that imply there are more avocado sales throughout seasons."), /*#__PURE__*/_reactDefault.default.createElement(_reactVega.VegaLite, {
+        spec: visFourSpec,
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 199,
+          lineNumber: 221,
+          columnNumber: 17
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 222,
+          columnNumber: 17
+        }
+      }, "After observing this graph, it seems that my suspicions about seasons could be correct, since a quick Google search showed that January - March are the seasons when avocados \"taste best\", and the graph presents that there are the highest avocado sales in January - March!")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 228,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 200,
+          lineNumber: 229,
           columnNumber: 17
         }
       }, "How has price affected the number of avocados sold? For the sizes of avocados?"), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 201,
+          lineNumber: 230,
           columnNumber: 17
         }
       }, "Another question following the results from the question from vis #1: ", /*#__PURE__*/_reactDefault.default.createElement("span", {
@@ -26745,36 +26786,36 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 202,
+          lineNumber: 231,
           columnNumber: 91
         }
       }, "How has the number of avocados sold changed throughout the years?")), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 205,
+          lineNumber: 234,
           columnNumber: 17
         }
       }, "Seeing the decline over time in sales for Hass avocados from 2014-2017, it immediately made me wonder if this could be due to an increase in price. So, first it made me think that I had to validate whether or not an average price has increased over time."), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211,
+          lineNumber: 240,
           columnNumber: 17
         }
       }, "Now that it has been validated that price has increased over time, I wanted to check the relationship between price and sales for avocados. I assume that since we've seen that sales have decreased over time, there should be a negative slope."), /*#__PURE__*/_reactDefault.default.createElement("p", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 218,
+          lineNumber: 247,
           columnNumber: 17
         }
       }, "Although this visualization showed a negative change over time and a negative relationship, I think that the prices being averaged is generalizing the price attribute too much, and price could be swayed by the how big an avocado is- namely the size of the avocado. So, this leads me to another follow up question:", /*#__PURE__*/_reactDefault.default.createElement("h5", {
-        className: "py-2 px-3",
+        className: "py-2",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 222,
+          lineNumber: 251,
           columnNumber: 21
         }
       }, "How has price affected the number of avocados sold for the different sizes of avocados?"))))
