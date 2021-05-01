@@ -23,20 +23,14 @@ const App = () => {
     });
 
     // DATA TRANSFORMATION FOR VIS # 1 ---- How has the number of avocados sold changed throughout the years?
-    // need volume and year
-    // year data 
-    yearData = avocados.map((d) => {
-        return +d.year;
-    });
+    // yearData = avocados.map((d) => {
+    //     return +d.year;
+    // });
 
-    // volume data 
-    volumeData = avocados.map((d) => {
-        return +d["Total Volume"];
-    });
-
-    setupData = {
-        table: [ avocados ], }
-
+    // // volume data 
+    // volumeData = avocados.map((d) => {
+    //     return +d["Total Volume"];
+    // });
     const visOneSpec = {
         // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         title: "How has the number of avocados sold changed throughout the years?",
@@ -96,6 +90,31 @@ const App = () => {
             "config": {}
     }
 
+    // DATA TRANSFORMATION + SPEC FOR VIS # 3 ---- What type of avocado was sold most from 2015-2017?
+    // need types of avocado (type column)
+    const visThreeSpec = {
+        title: "What type of avocado was sold most?",
+        description: "A simple bar chart with embedded data.",
+        width: 500,
+        height: 500,
+        data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+        mark: "bar",
+        encoding: {
+          x: {
+            field: "type", 
+            type: "nominal", 
+            axis: {labelAngle: 0},
+            title: "Type"
+          },
+          y: {
+            aggregate: "sum",
+            field: "Total Volume", 
+            type: "quantitative",
+            title: "Number of Avocados Sold"
+          }
+        }
+      }
+
     return (
         <div className="w-75 px-sm-5 py-5">
             <h1>Assignment 2: Avocado Data Exploratory Analysis</h1>
@@ -133,13 +152,14 @@ const App = () => {
                 <ul>
                     <li>How has the number of avocados sold changed throughout the years?</li>
                     <li>What is the most popular size of avocado?</li>
-                    <li>What type of avocado was sold most from 2015-2017?</li>
+                    <li>What type of avocado was sold most?</li>
                 </ul>
             </div>
             <div>
             {/* vis start */}
                 {/* VIS #1 */}
                 <h4>How has the number of avocados sold changed throughout the years?</h4>
+                <VegaLite spec={visOneSpec}  />
             </div>
             <div>
                 {/* VIS #2 */}
@@ -148,8 +168,8 @@ const App = () => {
             </div>
             <div>
                 {/* VIS #3 */}
-                <h4>What type of avocado was sold most from 2015-2017?</h4>
-                <VegaLite spec={visOneSpec}  />
+                <h4>What type of avocado was sold most?</h4>
+                <VegaLite spec={visThreeSpec} />
             </div>
         </div>
     ); 
