@@ -148,10 +148,10 @@ const App = () => {
                 </li>
             </ul>
             <div>
-                <h3>Analysis Questions:</h3>
+                <h3>Initial Analysis Questions:</h3>
                 <ul>
                     <li>How has the number of avocados sold changed throughout the years?</li>
-                    <li>What is the most popular size of avocado?</li>
+                    <li>What is the most popular size of avocado?</li> 
                     <li>What type of avocado was sold most?</li>
                 </ul>
             </div>
@@ -170,6 +170,59 @@ const App = () => {
                 {/* VIS #3 */}
                 <h4>What type of avocado was sold most?</h4>
                 <VegaLite spec={visThreeSpec} />
+            </div>
+            <div>
+                <h3>Add-On Questions:</h3>
+                <ul>
+                    <li>How does the number of avocados sold change throughout a year?</li>
+                    <li>How has price affected the number of avocados sold? For the types of avocados?</li> 
+                    <li>What type of avocados is most popular in each region?</li>
+                    <li>How have the number of sold avocados changed between the different sizes of avocados?</li>
+                    <li>How has the number sold for the types of avocados changed throughout the years?</li>
+                </ul>
+            </div>
+            <div>
+                <h4>How does the number of avocados sold change throughout a year?</h4>
+                <p>
+                    This question stemmed from curiosity from the question from vis #1: <span className="font-italic">
+                    How has the number of avocados sold changed throughout the years?</span>
+                </p>
+                <p>
+                    Looking at the result from the initial analysis question, it seems like the sales for the Hass 
+                    avocados have decreased over time from 2014-2017. The visualization for this used "year" as the
+                    temporal time measurement, but this made me think about another time measurement: month. So, I think
+                    that analyzing the graph for month could show trends that imply there are more avocado sales
+                    throughout seasons.
+                    {/* VIS #4 */}
+                </p>
+            </div>
+            <div>
+                <h4>How has price affected the number of avocados sold? For the sizes of avocados?</h4>
+                <p>
+                    Another question following the results from the question from vis #1: <span className="font-italic">
+                    How has the number of avocados sold changed throughout the years?</span>
+                </p>
+                <p>
+                    Seeing the decline over time in sales for Hass avocados from 2014-2017, it immediately made me wonder if this 
+                    could be due to an increase in price. So, first it made me think that I had to validate whether or not an average
+                    price has increased over time.
+                    {/* VIS #5 */}
+                </p>
+                <p>
+                    Now that it has been validated that price has increased over time, I wanted to check the relationship
+                    between price and sales for avocados. I assume that since we've seen that sales have decreased over time,
+                    there should be a negative slope. 
+                    {/* VIS #6 */}
+                    {/* scatter plot? */}
+                </p>
+                <p>
+                    Although this visualization showed a negative change over time and a negative relationship, I think that the
+                    prices being averaged is generalizing the price attribute too much, and price could be swayed by the how 
+                    big an avocado is- namely the size of the avocado. So, this leads me to another follow up question:
+                    <h5 className="py-2 px-3">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
+                    {/* VIS #7 */}
+                    {/* scatter with color? */}
+                </p>
             </div>
         </div>
     ); 
