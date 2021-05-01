@@ -15,6 +15,47 @@ const App = () => {
     console.log(data);
     // csv('https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv')
     //     .then(data => console.log(data));
+
+    // price data
+    getDataTest = data.map((d) => {
+        return +d.AveragePrice;
+    });
+
+    // year data 
+    yearData = data.map((d) => {
+        return +d.year;
+    });
+
+    // volume data 
+    volumeData = data.map((d) => {
+        return +d["Total Volume"];
+    });
+
+    // need JSON object that has
+    // size of avocado mapped to a number
+    // small: #, large: #, xl: 3
+
+    // DATA TRANSFORMATION FOR VIS # 3 ---- MOST POPULAR SIZE
+
+    small_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
+    // console.log("small sum    ", small_sum);
+    large_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
+    // console.log("large sum    ", large_sum);
+    x_large_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
+    // console.log("x_large_sum    ", x_large_sum);
+
+    const sizeData = [
+        { size: "small", count: small_sum },
+        { size: "large", count: large_sum},
+        { size: "extra large", count: x_large_sum}
+    ];
+
+    console.log("size data  " ,sizeData);
+
+
+    console.log("year    ", yearData);
+    console.log("volume?    ", volumeData);
+
     return (
         <div className="w-75 px-sm-5 py-5">
             <h1>Assignment 2: Avocado Data Exploratory Analysis</h1>
@@ -63,6 +104,7 @@ const App = () => {
             <div>
                 {/* VIS #2 */}
                 <h4>What is the most popular size of avocado?</h4>
+                
             </div>
             <div>
                 {/* VIS #3 */}
