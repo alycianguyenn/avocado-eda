@@ -1,4 +1,5 @@
 import React from "react";
+import { useFetch } from "./hooks/useFetch";
 // import { csv } from "d3-fetch";
 
 const viewHeight = 500;
@@ -7,12 +8,66 @@ const viewWidth = 500;
 
 const App = () => {
     // Adding data to application 
-    // csv('https://raw.githubusercontent.com/alycianguyenn/a2-exploratory-data-analysis/main/avocado.csv')
+    const [data, loading] = useFetch(
+        "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"
+      );
+
+    console.log(data);
+    // csv('https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv')
     //     .then(data => console.log(data));
     return (
-        <div>
-            <h1>Avocado Data Exploratory Analysis</h1>
-            <p>Data!</p>
+        <div className="w-75 px-sm-5 py-5">
+            <h1>Assignment 2: Avocado Data Exploratory Analysis</h1>
+            <h2>Alycia Nguyen - INFO 474 - Spring 2021</h2>
+            <span>
+                Reference: 
+                <a href="https://www.kaggle.com/neuromusic/avocado-prices"> Avocado Dataset</a>
+            </span>
+            <h3>Avocado Dataset Overview:</h3>
+            <p> 
+                This dataset provides records for Hass avocado sales from 2015 - 1018. Being an avocado lover, 
+                I was undoubtedly interested in this dataset. I thought it would be interesting to analyze aspects 
+                such as how prices can affect the sales for avocados, the distribution of avocado sales throughout 
+                different regions, how sales could change over time, etc. Overall, the dataset provides many 
+                measurements and categories that make it a fantastic source for exploration! The most significant 
+                attributes that caught my eye during my first impression of the dataset are:
+            </p>
+            <ul>
+                <li>
+                    <span className="font-weight-bold">4046</span>, <span className="font-weight-bold">4225</span> and 
+                    <span className="font-weight-bold"> 4770</span>: These 3 variables in the dataset each represent a 
+                    quantitative value for the number of avocados sold with the respective Product Lookup Code (PLU). 
+                    4046 is associated with small avocados, 4225 with large avocados, and 4770 with extra large avocados.
+                </li>
+                <li>
+                    <span className="font-weight-bold">Type:</span> Nominal / categorical variable refering to whether the 
+                    avocados sold were organic or conventional.
+                </li>
+                <li>
+                    <span className="font-weight-bold">Region</span>: This identifies a location for where avocados were sold.
+                </li>
+            </ul>
+            <div>
+                <h3>Analysis Questions:</h3>
+                <ul>
+                    <li>How has the number of avocados sold changed throughout the years?</li>
+                    <li>What is the most popular size of avocado?</li>
+                    <li>What type of avocado was sold most from 2015-2018?</li>
+                </ul>
+            </div>
+            <div>
+            {/* vis start */}
+                {/* VIS #1 */}
+                <h4>How has the number of avocados sold changed throughout the years?</h4>
+            </div>
+            <div>
+                {/* VIS #2 */}
+                <h4>What is the most popular size of avocado?</h4>
+            </div>
+            <div>
+                {/* VIS #3 */}
+                <h4>What type of avocado was sold most from 2015-2018?</h4>
+            </div>
         </div>
     ); 
 };

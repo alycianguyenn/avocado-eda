@@ -1054,12 +1054,13 @@ try {
   var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
   var _App = require("./App");
   var _AppDefault = _parcelHelpers.interopDefault(_App);
+  require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
   var _jsxFileName = "/Users/alycianguyen/Desktop/INFO 474/assignments/a2-eda/a2-avocado-eda/src/index.js";
   _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_AppDefault.default, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
+      lineNumber: 6,
       columnNumber: 17
     }
   }), document.querySelector("#root"));
@@ -1069,7 +1070,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","react-dom":"2sg1U","./App":"6Pm2X","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3b2NM":[function(require,module,exports) {
+},{"react":"3b2NM","react-dom":"2sg1U","./App":"6Pm2X","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","../node_modules/bootstrap/dist/css/bootstrap.min.css":"5GTF8"}],"3b2NM":[function(require,module,exports) {
 "use strict";
 if ("development" === 'production') {
   module.exports = require('./cjs/react.production.min.js');
@@ -26272,39 +26273,228 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require("react");
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "/Users/alycianguyen/Desktop/INFO 474/assignments/a2-eda/a2-avocado-eda/src/App.js";
+  var _hooksUseFetch = require("./hooks/useFetch");
+  var _jsxFileName = "/Users/alycianguyen/Desktop/INFO 474/assignments/a2-eda/a2-avocado-eda/src/App.js", _s = $RefreshSig$();
   // import { csv } from "d3-fetch";
   const viewHeight = 500;
   const viewWidth = 500;
   const App = () => {
+    _s();
     // Adding data to application
-    // csv('https://raw.githubusercontent.com/alycianguyenn/a2-exploratory-data-analysis/main/avocado.csv')
+    const [data, loading] = _hooksUseFetch.useFetch("https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv");
+    console.log(data);
+    // csv('https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv')
     // .then(data => console.log(data));
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "w-75 px-sm-5 py-5",
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13,
+          lineNumber: 19,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14,
+          lineNumber: 20,
           columnNumber: 13
         }
-      }, "Avocado Data Exploratory Analysis"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+      }, "Assignment 2: Avocado Data Exploratory Analysis"), /*#__PURE__*/_reactDefault.default.createElement("h2", {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15,
+          lineNumber: 21,
           columnNumber: 13
         }
-      }, "Data!"))
+      }, "Alycia Nguyen - INFO 474 - Spring 2021"), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 13
+        }
+      }, "Reference:", /*#__PURE__*/_reactDefault.default.createElement("a", {
+        href: "https://www.kaggle.com/neuromusic/avocado-prices",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 17
+        }
+      }, " Avocado Dataset")), /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 13
+        }
+      }, "Avocado Dataset Overview:"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 13
+        }
+      }, "This dataset provides records for Hass avocado sales from 2015 - 1018. Being an avocado lover, I was undoubtedly interested in this dataset. I thought it would be interesting to analyze aspects such as how prices can affect the sales for avocados, the distribution of avocado sales throughout different regions, how sales could change over time, etc. Overall, the dataset provides many measurements and categories that make it a fantastic source for exploration! The most significant attributes that caught my eye during my first impression of the dataset are:"), /*#__PURE__*/_reactDefault.default.createElement("ul", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "font-weight-bold",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 21
+        }
+      }, "4046"), ", ", /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "font-weight-bold",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 69
+        }
+      }, "4225"), " and", /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "font-weight-bold",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38,
+          columnNumber: 21
+        }
+      }, " 4770"), ": These 3 variables in the dataset each represent a quantitative value for the number of avocados sold with the respective Product Lookup Code (PLU). 4046 is associated with small avocados, 4225 with large avocados, and 4770 with extra large avocados."), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "font-weight-bold",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43,
+          columnNumber: 21
+        }
+      }, "Type:"), " Nominal / categorical variable refering to whether the avocados sold were organic or conventional."), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "font-weight-bold",
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47,
+          columnNumber: 21
+        }
+      }, "Region"), ": This identifies a location for where avocados were sold.")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51,
+          columnNumber: 17
+        }
+      }, "Analysis Questions:"), /*#__PURE__*/_reactDefault.default.createElement("ul", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53,
+          columnNumber: 21
+        }
+      }, "How has the number of avocados sold changed throughout the years?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54,
+          columnNumber: 21
+        }
+      }, "What is the most popular size of avocado?"), /*#__PURE__*/_reactDefault.default.createElement("li", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55,
+          columnNumber: 21
+        }
+      }, "What type of avocado was sold most from 2015-2018?"))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61,
+          columnNumber: 17
+        }
+      }, "How has the number of avocados sold changed throughout the years?")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65,
+          columnNumber: 17
+        }
+      }, "What is the most popular size of avocado?")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69,
+          columnNumber: 17
+        }
+      }, "What type of avocado was sold most from 2015-2018?")))
     );
   };
+  _s(App, "Jm65JCcgUFoenM4DufkEA80vRVI=", false, function () {
+    return [_hooksUseFetch.useFetch];
+  });
   _c = App;
   exports.default = App;
   var _c;
@@ -26315,7 +26505,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"5gA8y":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./hooks/useFetch":"5YU3r"}],"5gA8y":[function(require,module,exports) {
 "use strict";
 
 exports.interopDefault = function (a) {
@@ -26514,6 +26704,306 @@ function registerExportsForReactRefresh(module) {
   }
 }
 
-},{"react-refresh/runtime":"592mh"}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire9cea")
+},{"react-refresh/runtime":"592mh"}],"5YU3r":[function(require,module,exports) {
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "useFetch", function () {
+    return useFetch;
+  });
+  var _d3Fetch = require("d3-fetch");
+  var _react = require("react");
+  var _s = $RefreshSig$();
+  const useFetch = url => {
+    _s();
+    const [data, setData] = _react.useState([]);
+    const [loading, setLoading] = _react.useState(true);
+    async function fetchUrl() {
+      const response = await _d3Fetch.csv(url);
+      setData(response);
+      setLoading(false);
+    }
+    _react.useEffect(() => {
+      fetchUrl();
+    }, []);
+    return [data, loading];
+  };
+  _s(useFetch, "YP7e7Smzxlgf2d3MqLcgRZjo83U=");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+},{"d3-fetch":"3eyo6","react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3eyo6":[function(require,module,exports) {
+var define;
+// https://d3js.org/d3-fetch/ v2.0.0 Copyright 2020 Mike Bostock
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-dsv')) : typeof define === 'function' && define.amd ? define(['exports', 'd3-dsv'], factory) : (global = global || self, factory(global.d3 = global.d3 || ({}), global.d3));
+})(this, function (exports, d3Dsv) {
+  "use strict";
+  function responseBlob(response) {
+    if (!response.ok) throw new Error(response.status + " " + response.statusText);
+    return response.blob();
+  }
+  function blob(input, init) {
+    return fetch(input, init).then(responseBlob);
+  }
+  function responseArrayBuffer(response) {
+    if (!response.ok) throw new Error(response.status + " " + response.statusText);
+    return response.arrayBuffer();
+  }
+  function buffer(input, init) {
+    return fetch(input, init).then(responseArrayBuffer);
+  }
+  function responseText(response) {
+    if (!response.ok) throw new Error(response.status + " " + response.statusText);
+    return response.text();
+  }
+  function text(input, init) {
+    return fetch(input, init).then(responseText);
+  }
+  function dsvParse(parse) {
+    return function (input, init, row) {
+      if (arguments.length === 2 && typeof init === "function") (row = init, init = undefined);
+      return text(input, init).then(function (response) {
+        return parse(response, row);
+      });
+    };
+  }
+  function dsv(delimiter, input, init, row) {
+    if (arguments.length === 3 && typeof init === "function") (row = init, init = undefined);
+    var format = d3Dsv.dsvFormat(delimiter);
+    return text(input, init).then(function (response) {
+      return format.parse(response, row);
+    });
+  }
+  var csv = dsvParse(d3Dsv.csvParse);
+  var tsv = dsvParse(d3Dsv.tsvParse);
+  function image(input, init) {
+    return new Promise(function (resolve, reject) {
+      var image = new Image();
+      for (var key in init) image[key] = init[key];
+      image.onerror = reject;
+      image.onload = function () {
+        resolve(image);
+      };
+      image.src = input;
+    });
+  }
+  function responseJson(response) {
+    if (!response.ok) throw new Error(response.status + " " + response.statusText);
+    if (response.status === 204 || response.status === 205) return;
+    return response.json();
+  }
+  function json(input, init) {
+    return fetch(input, init).then(responseJson);
+  }
+  function parser(type) {
+    return (input, init) => text(input, init).then(text => new DOMParser().parseFromString(text, type));
+  }
+  var xml = parser("application/xml");
+  var html = parser("text/html");
+  var svg = parser("image/svg+xml");
+  exports.blob = blob;
+  exports.buffer = buffer;
+  exports.csv = csv;
+  exports.dsv = dsv;
+  exports.html = html;
+  exports.image = image;
+  exports.json = json;
+  exports.svg = svg;
+  exports.text = text;
+  exports.tsv = tsv;
+  exports.xml = xml;
+  Object.defineProperty(exports, '__esModule', {
+    value: true
+  });
+});
+
+},{"d3-dsv":"6T2lj"}],"6T2lj":[function(require,module,exports) {
+var define;
+// https://d3js.org/d3-dsv/ v2.0.0 Copyright 2020 Mike Bostock
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) : typeof define === 'function' && define.amd ? define(['exports'], factory) : (global = global || self, factory(global.d3 = global.d3 || ({})));
+})(this, function (exports) {
+  "use strict";
+  var EOL = {}, EOF = {}, QUOTE = 34, NEWLINE = 10, RETURN = 13;
+  function objectConverter(columns) {
+    return new Function("d", "return {" + columns.map(function (name, i) {
+      return JSON.stringify(name) + ": d[" + i + "] || \"\"";
+    }).join(",") + "}");
+  }
+  function customConverter(columns, f) {
+    var object = objectConverter(columns);
+    return function (row, i) {
+      return f(object(row), i, columns);
+    };
+  }
+  // Compute unique columns in order of discovery.
+  function inferColumns(rows) {
+    var columnSet = Object.create(null), columns = [];
+    rows.forEach(function (row) {
+      for (var column in row) {
+        if (!((column in columnSet))) {
+          columns.push(columnSet[column] = column);
+        }
+      }
+    });
+    return columns;
+  }
+  function pad(value, width) {
+    var s = value + "", length = s.length;
+    return length < width ? new Array(width - length + 1).join(0) + s : s;
+  }
+  function formatYear(year) {
+    return year < 0 ? "-" + pad(-year, 6) : year > 9999 ? "+" + pad(year, 6) : pad(year, 4);
+  }
+  function formatDate(date) {
+    var hours = date.getUTCHours(), minutes = date.getUTCMinutes(), seconds = date.getUTCSeconds(), milliseconds = date.getUTCMilliseconds();
+    return isNaN(date) ? "Invalid Date" : formatYear(date.getUTCFullYear()) + "-" + pad(date.getUTCMonth() + 1, 2) + "-" + pad(date.getUTCDate(), 2) + (milliseconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "." + pad(milliseconds, 3) + "Z" : seconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "Z" : minutes || hours ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + "Z" : "");
+  }
+  function dsv(delimiter) {
+    var reFormat = new RegExp("[\"" + delimiter + "\n\r]"), DELIMITER = delimiter.charCodeAt(0);
+    function parse(text, f) {
+      var convert, columns, rows = parseRows(text, function (row, i) {
+        if (convert) return convert(row, i - 1);
+        (columns = row, convert = f ? customConverter(row, f) : objectConverter(row));
+      });
+      rows.columns = columns || [];
+      return rows;
+    }
+    function parseRows(text, f) {
+      var rows = [], // output rows
+      N = text.length, I = 0, // current character index
+      n = 0, // current line number
+      t, // current token
+      eof = N <= 0, // current token followed by EOF?
+      eol = false;
+      // current token followed by EOL?
+      // Strip the trailing newline.
+      if (text.charCodeAt(N - 1) === NEWLINE) --N;
+      if (text.charCodeAt(N - 1) === RETURN) --N;
+      function token() {
+        if (eof) return EOF;
+        if (eol) return (eol = false, EOL);
+        // Unescape quotes.
+        var i, j = I, c;
+        if (text.charCodeAt(j) === QUOTE) {
+          while (I++ < N && text.charCodeAt(I) !== QUOTE || text.charCodeAt(++I) === QUOTE) ;
+          if ((i = I) >= N) eof = true; else if ((c = text.charCodeAt(I++)) === NEWLINE) eol = true; else if (c === RETURN) {
+            eol = true;
+            if (text.charCodeAt(I) === NEWLINE) ++I;
+          }
+          return text.slice(j + 1, i - 1).replace(/""/g, "\"");
+        }
+        // Find next delimiter or newline.
+        while (I < N) {
+          if ((c = text.charCodeAt(i = I++)) === NEWLINE) eol = true; else if (c === RETURN) {
+            eol = true;
+            if (text.charCodeAt(I) === NEWLINE) ++I;
+          } else if (c !== DELIMITER) continue;
+          return text.slice(j, i);
+        }
+        // Return last token before EOF.
+        return (eof = true, text.slice(j, N));
+      }
+      while ((t = token()) !== EOF) {
+        var row = [];
+        while (t !== EOL && t !== EOF) (row.push(t), t = token());
+        if (f && (row = f(row, n++)) == null) continue;
+        rows.push(row);
+      }
+      return rows;
+    }
+    function preformatBody(rows, columns) {
+      return rows.map(function (row) {
+        return columns.map(function (column) {
+          return formatValue(row[column]);
+        }).join(delimiter);
+      });
+    }
+    function format(rows, columns) {
+      if (columns == null) columns = inferColumns(rows);
+      return [columns.map(formatValue).join(delimiter)].concat(preformatBody(rows, columns)).join("\n");
+    }
+    function formatBody(rows, columns) {
+      if (columns == null) columns = inferColumns(rows);
+      return preformatBody(rows, columns).join("\n");
+    }
+    function formatRows(rows) {
+      return rows.map(formatRow).join("\n");
+    }
+    function formatRow(row) {
+      return row.map(formatValue).join(delimiter);
+    }
+    function formatValue(value) {
+      return value == null ? "" : value instanceof Date ? formatDate(value) : reFormat.test(value += "") ? "\"" + value.replace(/"/g, "\"\"") + "\"" : value;
+    }
+    return {
+      parse: parse,
+      parseRows: parseRows,
+      format: format,
+      formatBody: formatBody,
+      formatRows: formatRows,
+      formatRow: formatRow,
+      formatValue: formatValue
+    };
+  }
+  var csv = dsv(",");
+  var csvParse = csv.parse;
+  var csvParseRows = csv.parseRows;
+  var csvFormat = csv.format;
+  var csvFormatBody = csv.formatBody;
+  var csvFormatRows = csv.formatRows;
+  var csvFormatRow = csv.formatRow;
+  var csvFormatValue = csv.formatValue;
+  var tsv = dsv("\t");
+  var tsvParse = tsv.parse;
+  var tsvParseRows = tsv.parseRows;
+  var tsvFormat = tsv.format;
+  var tsvFormatBody = tsv.formatBody;
+  var tsvFormatRows = tsv.formatRows;
+  var tsvFormatRow = tsv.formatRow;
+  var tsvFormatValue = tsv.formatValue;
+  function autoType(object) {
+    for (var key in object) {
+      var value = object[key].trim(), number, m;
+      if (!value) value = null; else if (value === "true") value = true; else if (value === "false") value = false; else if (value === "NaN") value = NaN; else if (!isNaN(number = +value)) value = number; else if (m = value.match(/^([-+]\d{2})?\d{4}(-\d{2}(-\d{2})?)?(T\d{2}:\d{2}(:\d{2}(\.\d{3})?)?(Z|[-+]\d{2}:\d{2})?)?$/)) {
+        if (fixtz && !!m[4] && !m[7]) value = value.replace(/-/g, "/").replace(/T/, " ");
+        value = new Date(value);
+      } else continue;
+      object[key] = value;
+    }
+    return object;
+  }
+  // https://github.com/d3/d3-dsv/issues/45
+  const fixtz = new Date("2019-01-01T00:00").getHours() || new Date("2019-07-01T00:00").getHours();
+  exports.autoType = autoType;
+  exports.csvFormat = csvFormat;
+  exports.csvFormatBody = csvFormatBody;
+  exports.csvFormatRow = csvFormatRow;
+  exports.csvFormatRows = csvFormatRows;
+  exports.csvFormatValue = csvFormatValue;
+  exports.csvParse = csvParse;
+  exports.csvParseRows = csvParseRows;
+  exports.dsvFormat = dsv;
+  exports.tsvFormat = tsvFormat;
+  exports.tsvFormatBody = tsvFormatBody;
+  exports.tsvFormatRow = tsvFormatRow;
+  exports.tsvFormatRows = tsvFormatRows;
+  exports.tsvFormatValue = tsvFormatValue;
+  exports.tsvParse = tsvParse;
+  exports.tsvParseRows = tsvParseRows;
+  Object.defineProperty(exports, '__esModule', {
+    value: true
+  });
+});
+
+},{}],"5GTF8":[function() {},{}]},["1j6wU","3Imd1","5rkFb"], "5rkFb", "parcelRequire7ea6")
 
 //# sourceMappingURL=index.3fafb3e2.js.map
