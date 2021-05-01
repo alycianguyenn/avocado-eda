@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetch } from "./hooks/useFetch";
 // import { csv } from "d3-fetch";
+import { VegaLite } from 'react-vega';
 
 const viewHeight = 500;
 const viewWidth = 500;
@@ -31,11 +32,10 @@ const App = () => {
         return +d["Total Volume"];
     });
 
-    // need JSON object that has
-    // size of avocado mapped to a number
-    // small: #, large: #, xl: 3
+    // DATA TRANSFORMATION FOR VIS # 1 ---- How has the number of avocados sold changed throughout the years?
+    
 
-    // DATA TRANSFORMATION FOR VIS # 3 ---- MOST POPULAR SIZE
+    // DATA TRANSFORMATION FOR VIS # 2 ---- What is the most popular size of avocado?
 
     small_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
     // console.log("small sum    ", small_sum);
@@ -44,17 +44,32 @@ const App = () => {
     x_large_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
     // console.log("x_large_sum    ", x_large_sum);
 
-    const sizeData = [
-        { size: "small", count: small_sum },
-        { size: "large", count: large_sum},
-        { size: "extra large", count: x_large_sum}
-    ];
+    const sizeData = {
+        table: [
+            { size: "small", count: small_sum },
+            { size: "large", count: large_sum},
+            { size: "extra large", count: x_large_sum}
+        ],
+    }
 
-    console.log("size data  " ,sizeData);
+    // console.log("size data  " ,sizeData);
+    // console.log("year    ", yearData);
+    // console.log("volume?    ", volumeData);
 
-
-    console.log("year    ", yearData);
-    console.log("volume?    ", volumeData);
+    const visTwoSpec = {
+            // $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+            title: "What is the most popular size of avocado?",
+            description: "A simple bar chart with embedded data.",
+            width: viewWidth,
+            height: viewHeight,
+            mark: "bar",
+            encoding: {
+              x: {"field": "size", "type": "nominal", "axis": {"labelAngle": 0}},
+              y: {"field": "count", "type": "quantitative"}
+            },
+            data: { name: 'table' },
+            "config": {}
+    }
 
     return (
         <div className="w-75 px-sm-5 py-5">
@@ -104,7 +119,7 @@ const App = () => {
             <div>
                 {/* VIS #2 */}
                 <h4>What is the most popular size of avocado?</h4>
-                
+                <VegaLite spec={visTwoSpec} data={sizeData} />
             </div>
             <div>
                 {/* VIS #3 */}
