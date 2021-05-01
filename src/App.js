@@ -9,39 +9,64 @@ const viewWidth = 500;
 
 const App = () => {
     // Adding data to application 
-    const [data, loading] = useFetch(
+    const [avocados, loading] = useFetch(
         "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"
       );
 
-    console.log(data);
+    console.log(avocados);
     // csv('https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv')
     //     .then(data => console.log(data));
 
     // price data
-    getDataTest = data.map((d) => {
+    getDataTest = avocados.map((d) => {
         return +d.AveragePrice;
     });
 
+    // DATA TRANSFORMATION FOR VIS # 1 ---- How has the number of avocados sold changed throughout the years?
+    // need volume and year
     // year data 
-    yearData = data.map((d) => {
+    yearData = avocados.map((d) => {
         return +d.year;
     });
 
     // volume data 
-    volumeData = data.map((d) => {
+    volumeData = avocados.map((d) => {
         return +d["Total Volume"];
     });
 
-    // DATA TRANSFORMATION FOR VIS # 1 ---- How has the number of avocados sold changed throughout the years?
-    
+    setupData = {
+        table: [ avocados ], }
+
+    const visOneSpec = {
+        // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        title: "How has the number of avocados sold changed throughout the years?",
+        width: 500,
+        height: 500,
+        description: "Avocado sales over the years",
+        data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+        mark: "line",
+        encoding: {
+          x: {
+            field: "year", 
+            timeUnit: "year",
+            type: "temporal",
+            axis: {tickCount: "year"}
+          },
+          y: {
+            aggregate: "sum", 
+            field: "Total Volume",
+            title: "Number of avocados sold"
+          }
+        }
+      }
 
     // DATA TRANSFORMATION FOR VIS # 2 ---- What is the most popular size of avocado?
 
-    small_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
+    small_sum = Math.round(avocados.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
     // console.log("small sum    ", small_sum);
-    large_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
+    large_sum = Math.round(avocados.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
     // console.log("large sum    ", large_sum);
-    x_large_sum = Math.round(data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
+    x_large_sum = Math.round(avocados.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
     // console.log("x_large_sum    ", x_large_sum);
 
     const sizeData = {
@@ -108,7 +133,7 @@ const App = () => {
                 <ul>
                     <li>How has the number of avocados sold changed throughout the years?</li>
                     <li>What is the most popular size of avocado?</li>
-                    <li>What type of avocado was sold most from 2015-2018?</li>
+                    <li>What type of avocado was sold most from 2015-2017?</li>
                 </ul>
             </div>
             <div>
@@ -123,7 +148,8 @@ const App = () => {
             </div>
             <div>
                 {/* VIS #3 */}
-                <h4>What type of avocado was sold most from 2015-2018?</h4>
+                <h4>What type of avocado was sold most from 2015-2017?</h4>
+                <VegaLite spec={visOneSpec}  />
             </div>
         </div>
     ); 
