@@ -41,7 +41,7 @@ const App = () => {
         mark: "line",
         encoding: {
           x: {
-            field: "year", 
+            field: "Date", 
             timeUnit: "year",
             type: "temporal",
             axis: {tickCount: "year"}
@@ -138,6 +138,28 @@ const App = () => {
         }
       }
 
+      const visFiveSpec = {
+        title: "How has price affected the number of avocados sold?",
+        width: 500,
+        height: 500,
+        description: "Avocado prices over the years",
+        data: {url: "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+        mark: "line",
+        encoding: {
+          x: {
+            field: "Date", 
+            timeUnit: "year",
+            type: "temporal",
+            axis: {tickCount: "year"}
+          },
+          y: {
+            aggregate: "average", 
+            field: "AveragePrice",
+            title: "Average Price for a Single Avocado (dollars)"
+          }
+        }
+      }
+
     return (
         <div className="w-75 px-sm-5 py-5">
             <h1>Assignment 2: Avocado Data Exploratory Analysis</h1>
@@ -212,10 +234,12 @@ const App = () => {
                 </p>
                 <p>
                     Looking at the result from the initial analysis question, it seems like the sales for the Hass 
-                    avocados have decreased over time from 2014-2017. The visualization for this used "year" as the
-                    temporal time measurement, but this made me think about another time measurement: month. So, I think
-                    that analyzing the graph for month could show trends that imply there are more avocado sales
-                    throughout seasons.
+                    avocados have decreased over time from 2015-2018. I think that the drop could be due to the fact that there
+                    are less data points for 2018, but for exploration I will continue my thought process.
+                    The visualization for this used "year" as the temporal time measurement from the 
+                    <span className="font-weight-bold">Date</span> attribute, which made me think about another time 
+                    measurement: month. So, I think that analyzing the graph for month could show trends that imply there 
+                    are more avocado sales throughout seasons.
                 </p>
                 {/* VIS #4 */}
                 <VegaLite spec={visFourSpec} />
@@ -232,26 +256,44 @@ const App = () => {
                     How has the number of avocados sold changed throughout the years?</span>
                 </p>
                 <p>
-                    Seeing the decline over time in sales for Hass avocados from 2014-2017, it immediately made me wonder if this 
+                    Seeing the decline over time in sales for Hass avocados from 2015-2018, it immediately made me wonder if this 
                     could be due to an increase in price. So, first it made me think that I had to validate whether or not an average
                     price has increased over time.
-                    {/* VIS #5 */}
                 </p>
+                {/* VIS #5 */}
+                <VegaLite spec={visFiveSpec} />
                 <p>
-                    Now that it has been validated that price has increased over time, I wanted to check the relationship
+                    Although this visualization did not play to my assumption, I think it's interesting how the price actually 
+                    seemed to fluctuate throughout the years. Now I think I want to check the relationship
                     between price and sales for avocados. I assume that since we've seen that sales have decreased over time,
                     there should be a negative slope. 
-                    {/* VIS #6 */}
-                    {/* scatter plot? */}
                 </p>
+                 {/* VIS #6 */}
+                {/* scatter plot? */}
+                <p className="py-5">FILL IN LATER THIS IS BROKEN</p>
                 <p>
                     Although this visualization showed a negative change over time and a negative relationship, I think that the
                     prices being averaged is generalizing the price attribute too much, and price could be swayed by the how 
                     big an avocado is- namely the size of the avocado. So, this leads me to another follow up question:
-                    <h5 className="py-2">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
+                </p>
+                <h5 className="py-2">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
                     {/* VIS #7 */}
                     {/* scatter with color? */}
-                </p>
+                <p className="py-5">FILL IN LATER THIS IS BROKEN</p>
+            </div>
+            <div>
+                <h4>What type of avocados is most popular in each region?</h4>
+                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
+                <h4>Where are there the most sales for avocados?</h4>
+                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
+            </div>
+            <div>
+                <h4>How have the number of sold avocados changed between the different sizes of avocados?</h4>
+                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
+            </div>
+            <div>
+                <h4>How has the number sold for the types of avocados changed throughout the years?</h4>
+                <p className="py-5">FILL IN LATER - MAYBE LINE CHART WITH DIFFERENT COLORS</p>
             </div>
         </div>
     ); 
