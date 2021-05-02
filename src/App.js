@@ -156,143 +156,131 @@ const App = () => {
 
     // VIS #6 DATA TRANSFORMATION 
 
-    const yearGroupedData = avocados.reduce((result, currentValue) => {
-        (result[currentValue.year] = result[currentValue.year] || []).push(
-          currentValue
-        );
-        // console.log(result);
-        return result;
-      }, {});
-
-    console.log("new data   ", yearGroupedData);
-    // const groupBy = () => {
-    //   return avocados.reduce((result, currentValue) => {
+    // const yearGroupedData = avocados.reduce((result, currentValue) => {
     //     (result[currentValue.year] = result[currentValue.year] || []).push(
     //       currentValue
     //     );
     //     // console.log(result);
     //     return result;
     //   }, {});
-    // };
 
-    // const groupedByYear = groupBy();
-    // console.log(groupedByYear);
+    // console.log("new data   ", yearGroupedData);
 
     // // // // returns array with year counts for each size
     // // // // 0: small
     // // // // 1: large
     // // // // 2: xlarge
-    const getYearCountInfo = (yearChoice) => {
-      grouped_data = yearGroupedData[yearChoice];
-      sum_small_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
-      sum_large_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
-      sum_xLarge_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
-      yearData = [sum_small_year, sum_large_year, sum_xLarge_year];
-      return yearData;
-    }
+//     const getYearCountInfo = (yearChoice) => {
+//       grouped_data = yearGroupedData[yearChoice];
+//       sum_small_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
+//       sum_large_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
+//       sum_xLarge_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
+//       yearData = [sum_small_year, sum_large_year, sum_xLarge_year];
+//       return yearData;
+//     }
 
-    yearDataFuncTest_2015 = getYearCountInfo(2015);
-    console.log("2015 function test   ", yearDataFuncTest_2015);
+//     yearDataFuncTest_2015 = getYearCountInfo(2015);
+//     console.log("2015 function test   ", yearDataFuncTest_2015);
 
-    yearDataFuncTest_2016 = getYearCountInfo(2016);
-    console.log("2016 function test   ", yearDataFuncTest_2016);
+//     yearDataFuncTest_2016 = getYearCountInfo(2016);
+//     console.log("2016 function test   ", yearDataFuncTest_2016);
 
-    yearDataFuncTest_2017 = getYearCountInfo(2017);
-    console.log("2017 function test   ", yearDataFuncTest_2017);
+//     yearDataFuncTest_2017 = getYearCountInfo(2017);
+//     console.log("2017 function test   ", yearDataFuncTest_2017);
 
-    yearDataFuncTest_2018 = getYearCountInfo(2018);
-    console.log("2018 function test   ", yearDataFuncTest_2018);
+//     yearDataFuncTest_2018 = getYearCountInfo(2018);
+//     console.log("2018 function test   ", yearDataFuncTest_2018);
 
-    const sizeOverTimeData = {
-        table: [
-            { 
-              size: "small", 
-              count: yearDataFuncTest_2015[0],
-              year: 2015 
-            },
-            { 
-              size: "large", 
-              count: yearDataFuncTest_2015[1],
-              year: 2015 
-            },
-            { 
-              size: "x-large", 
-              count: yearDataFuncTest_2015[2],
-              year: 2015 
-            },
-            { 
-              size: "small", 
-              count: yearDataFuncTest_2016[0],
-              year: 2016 
-            },
-            { 
-              size: "large", 
-              count: yearDataFuncTest_2016[1],
-              year: 2016
-            },
-            { 
-              size: "x-large", 
-              count: yearDataFuncTest_2016[2],
-              year: 2016 
-            },
-            { 
-              size: "small", 
-              count: yearDataFuncTest_2017[0],
-              year: 2017 
-            },
-            { 
-              size: "large", 
-              count: yearDataFuncTest_2017[1],
-              year: 2017 
-            },
-            { 
-              size: "x-large", 
-              count: yearDataFuncTest_2017[2],
-              year: 2017 
-            },
-            { 
-              size: "small", 
-              count: yearDataFuncTest_2018[0],
-              year: 2018 
-            },
-            { 
-              size: "large", 
-              count: yearDataFuncTest_2018[1],
-              year: 2018 
-            },
-            { 
-              size: "x-large", 
-              count: yearDataFuncTest_2018[2],
-              year: 2018 
-            }
-        ],
-    }
+//     const sizeOverTimeData = {
+//         table: [
+//             { 
+//               size: "small", 
+//               count: yearDataFuncTest_2015[0],
+//               year: 2015 
+//             },
+//             { 
+//               size: "large", 
+//               count: yearDataFuncTest_2015[1],
+//               year: 2015 
+//             },
+//             { 
+//               size: "x-large", 
+//               count: yearDataFuncTest_2015[2],
+//               year: 2015 
+//             },
+//             { 
+//               size: "small", 
+//               count: yearDataFuncTest_2016[0],
+//               year: 2016 
+//             },
+//             { 
+//               size: "large", 
+//               count: yearDataFuncTest_2016[1],
+//               year: 2016
+//             },
+//             { 
+//               size: "x-large", 
+//               count: yearDataFuncTest_2016[2],
+//               year: 2016 
+//             },
+//             { 
+//               size: "small", 
+//               count: yearDataFuncTest_2017[0],
+//               year: 2017 
+//             },
+//             { 
+//               size: "large", 
+//               count: yearDataFuncTest_2017[1],
+//               year: 2017 
+//             },
+//             { 
+//               size: "x-large", 
+//               count: yearDataFuncTest_2017[2],
+//               year: 2017 
+//             },
+//             { 
+//               size: "small", 
+//               count: yearDataFuncTest_2018[0],
+//               year: 2018 
+//             },
+//             { 
+//               size: "large", 
+//               count: yearDataFuncTest_2018[1],
+//               year: 2018 
+//             },
+//             { 
+//               size: "x-large", 
+//               count: yearDataFuncTest_2018[2],
+//               year: 2018 
+//             }
+//         ],
+//     }
 
-    console.log("size over time   ", sizeOverTimeData);
+//     console.log("size over time   ", sizeOverTimeData);
 
-    const visSixSpec = {
-      title: "How have the number of sold avocados changed between the different sizes of avocados?",
-      description: "Stacked area chart showing how the sales for the sizes of avocados have changed",
-      width: viewWidth,
-      height: viewHeight,
-      mark: "area",
-      encoding: {
-        x: {
-          field: "year"
-        },
-        y: {
-          aggregate: "sum",
-          field: "count", 
-          title: "Number of avocados sold"
-        }, 
-        color: {
-          field: "size", 
-          scale: {"scheme": "greys"}
-        }
-      },
-      data: { name: 'table' },
-      "config": {}
-}
+//     const visSixSpec = {
+//       title: "How have the number of sold avocados changed between the different sizes of avocados?",
+//       description: "Stacked area chart showing how the sales for the sizes of avocados have changed",
+//       width: viewWidth,
+//       height: viewHeight,
+//       mark: "area",
+//       encoding: {
+//         x: {
+//           field: "year"
+//         },
+//         y: {
+//           aggregate: "sum",
+//           field: "count", 
+//           title: "Number of avocados sold"
+//         }, 
+//         color: {
+//           field: "size", 
+//           scale: {"scheme": "greys"}
+//         }
+//       },
+//       data: { name: 'table' },
+//       "config": {}
+// }
 
 const visSevenSpec = {
   title: "How has the number sold for the types of avocados changed throughout the years?",
@@ -611,8 +599,12 @@ const visNineSpec = {
                   in sales for avocados over time. This stacked area chart is meant to reveal if small and large avocados
                   have always been relatively equal in the number of sales.
                 </p>
+                <span className="font-weight-bold py-5">
+                  THIS ENTIRE VIS HAS BEEN COMMENTED OUT BECAUSE IT BROKE EVERYTHING DURING BUILD : ( NOT SURE WHY THOUGH 
+                  BECAUSE ALL IT DID WAS THROW A WARNING DURING NPM START : (
+                </span>
                 {/* VIS #6 */}
-                <VegaLite spec={visSixSpec} data={sizeOverTimeData} />
+                {/* <VegaLite spec={visSixSpec} data={sizeOverTimeData} /> */}
                 <div> Variables used:
                   <ul>
                     <li>
@@ -673,7 +665,10 @@ const visNineSpec = {
                 <li>How has price changed over time?</li>
                 <li>How has price affected the number of avocados sold? For the different types of avocados?</li>
                 <li>Where are there the most sales for avocados?</li>
-                <li>How have the number of sold avocados changed between the different sizes of avocados?</li>
+                <li>
+                  How have the number of sold avocados changed between the different sizes of avocados? - this 
+                  question has been removed due to weird errors during build : (
+                </li>
                 <li>How has the number sold for the types of avocados changed throughout the years?</li>
               </ul>
             </div>
@@ -706,7 +701,9 @@ const visNineSpec = {
             the summed up <span className="font-weight-bold">Total Volume</span>(number of avocados sold) for each 
             <span className="font-weight-bold">region</span>. I also chose to include a temporal aspect with Date to 
             show change over time. A last data transformation I will discuss is for the question “How have the number 
-            of sold avocados changed between the different sizes of avocados?”. This required a lot of data transformation 
+            of sold avocados changed between the different sizes of avocados?”. 
+            <span className="font-weight-light"> Please note that this question has been removed due to weird errors 
+            during build : ( </span> This required a lot of data transformation 
             because the numbers for avocados sold are in 3 different columns: <span className="font-weight-bold">4046</span>, 
             <span className="font-weight-bold">4225</span> and <span className="font-weight-bold">4770</span>. I did this 
             transformation in React, and created a JSON-formatted object that first grouped data from all 3 of these 
