@@ -293,23 +293,78 @@ const visSevenSpec = {
   height: viewHeight,
   description: "Stacked area chart showing change in sales for different types of avocados",
   data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+  mark: {
+    type: "bar",
+    width: { band: 0.7 }
+  },
+    encoding: {
+      x: {
+        field: "Date",
+        timeUnit: "year",
+        axis: {tickCount: "year"}
+      },
+      y: {
+        aggregate: "sum",
+        field: "Total Volume", 
+        type: "quantitative"
+      },
+      color: {
+        field: "type", 
+        type: "nominal",
+        scale: {"scheme": "greys"}
+      }
+    }
+  }
+
+const visEightSpec = {
+  width: 500,
+  height: 500,
+  title: "Where are there the most sales for avocados?",
+  data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
   mark: "area",
+  transform: [
+    {
+      window:[{
+        op: "rank",
+        as: "rank"
+      }],
+      sort: [{
+        field: "Total Volume",
+        order: "descending"
+      }]
+    },
+    {
+      filter: "datum.rank <= 10"
+    }
+  ],
   encoding: {
     x: {
-      field: "Date", 
-      timeUnit: "year",
-      type: "temporal"},
+      timeUnit: "year", 
+      field: "Date",
+      axis: {
+        tickCount: "year"
+      } 
+    },
     y: {
-      aggregate: "sum",
-      field: "Total Volume", 
-      type: "quantitative"},
+      aggregate: "sum", 
+      field: "Total Volume",
+      title: "Number of avocados sold",
+      sort: {
+        field: "Total Volume", 
+        op: "sum",
+        order: "descending"
+      }
+    },
     color: {
-      field: "type", 
-      type: "nominal",
-      scale: {"scheme": "greys"}
+      field: "region",
+      scale: {
+        scheme: "category20b"
+      }
     }
   }
 }
+
+
 
     return (
         <div className="w-75 px-sm-5 py-5">
@@ -433,10 +488,9 @@ const visSevenSpec = {
                 <p className="py-5">FILL IN LATER THIS IS BROKEN</p>
             </div>
             <div>
-                <h4>What type of avocados is most popular in each region?</h4>
-                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
                 <h4>Where are there the most sales for avocados?</h4>
-                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
+                <p className="py-5">FILL IN EXPLANATION LATER</p>
+                <VegaLite spec={visEightSpec} />
             </div>
             <div>
                 <h4>How have the number of sold avocados changed between the different sizes of avocados?</h4>
