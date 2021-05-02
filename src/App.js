@@ -155,25 +155,35 @@ const App = () => {
       }
 
     // VIS #6 DATA TRANSFORMATION 
-    const groupBy = () => {
-      return avocados.reduce((result, currentValue) => {
+
+    const yearGroupedData = avocados.reduce((result, currentValue) => {
         (result[currentValue.year] = result[currentValue.year] || []).push(
           currentValue
         );
         // console.log(result);
         return result;
       }, {});
-    };
 
-    const groupedByYear = groupBy();
-    console.log(groupedByYear);
+    console.log("new data   ", yearGroupedData);
+    // const groupBy = () => {
+    //   return avocados.reduce((result, currentValue) => {
+    //     (result[currentValue.year] = result[currentValue.year] || []).push(
+    //       currentValue
+    //     );
+    //     // console.log(result);
+    //     return result;
+    //   }, {});
+    // };
+
+    // const groupedByYear = groupBy();
+    // console.log(groupedByYear);
 
     // // // // returns array with year counts for each size
     // // // // 0: small
     // // // // 1: large
     // // // // 2: xlarge
     const getYearCountInfo = (yearChoice) => {
-      grouped_data = groupedByYear[yearChoice];
+      grouped_data = yearGroupedData[yearChoice];
       sum_small_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
       sum_large_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
       sum_xLarge_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
