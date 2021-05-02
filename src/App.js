@@ -71,10 +71,6 @@ const App = () => {
         ],
     }
 
-    // console.log("size data  " ,sizeData);
-    // console.log("year    ", yearData);
-    // console.log("volume?    ", volumeData);
-
     const visTwoSpec = {
             // $schema: "https://vega.github.io/schema/vega-lite/v5.json",
             title: "What is the most popular size of avocado?",
@@ -159,6 +155,136 @@ const App = () => {
           }
         }
       }
+
+    // stacked area chart with sizes data transformation
+   
+    const groupBy = () => {
+      return avocados.reduce((result, currentValue) => {
+        (result[currentValue.year] = result[currentValue.year] || []).push(
+          currentValue
+        );
+        // console.log(result);
+        return result;
+      }, {});
+    };
+
+    const groupedByYear = groupBy();
+    console.log(groupedByYear);
+
+    // // // returns array with year counts for each size
+    // // // 0: small
+    // // // 1: large
+    // // // 2: xlarge
+    const getYearCountInfo = (yearChoice) => {
+      // yearData = [];
+      grouped_data = groupedByYear[yearChoice];
+      sum_small_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
+      sum_large_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
+      sum_xLarge_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4770]) , 0 ));
+      yearData = [sum_small_year, sum_large_year, sum_xLarge_year];
+      return yearData;
+    }
+
+    yearDataFuncTest_2015 = getYearCountInfo(2015);
+    console.log("2015 function test   ", yearDataFuncTest_2015);
+
+    yearDataFuncTest_2016 = getYearCountInfo(2016);
+    console.log("2016 function test   ", yearDataFuncTest_2016);
+
+    yearDataFuncTest_2017 = getYearCountInfo(2017);
+    console.log("2017 function test   ", yearDataFuncTest_2017);
+
+    yearDataFuncTest_2018 = getYearCountInfo(2018);
+    console.log("2018 function test   ", yearDataFuncTest_2018);
+
+    const sizeOverTimeData = {
+        table: [
+            { 
+              size: "small", 
+              count: yearDataFuncTest_2015[0],
+              year: 2015 
+            },
+            { 
+              size: "large", 
+              count: yearDataFuncTest_2015[1],
+              year: 2015 
+            },
+            { 
+              size: "x-large", 
+              count: yearDataFuncTest_2015[2],
+              year: 2015 
+            },
+            { 
+              size: "small", 
+              count: yearDataFuncTest_2016[0],
+              year: 2016 
+            },
+            { 
+              size: "large", 
+              count: yearDataFuncTest_2016[1],
+              year: 2016
+            },
+            { 
+              size: "x-large", 
+              count: yearDataFuncTest_2016[2],
+              year: 2016 
+            },
+            { 
+              size: "small", 
+              count: yearDataFuncTest_2017[0],
+              year: 2017 
+            },
+            { 
+              size: "large", 
+              count: yearDataFuncTest_2017[1],
+              year: 2017 
+            },
+            { 
+              size: "x-large", 
+              count: yearDataFuncTest_2017[2],
+              year: 2017 
+            },
+            { 
+              size: "small", 
+              count: yearDataFuncTest_2018[0],
+              year: 2018 
+            },
+            { 
+              size: "large", 
+              count: yearDataFuncTest_2018[1],
+              year: 2018 
+            },
+            { 
+              size: "x-large", 
+              count: yearDataFuncTest_2018[2],
+              year: 2018 
+            }
+        ],
+    }
+
+    console.log("size over time   ", sizeOverTimeData);
+
+    const visSixSpec = {
+      title: "How have the number of sold avocados changed between the different sizes of avocados?",
+      description: "Stacked area chart showing how the sales for the sizes of avocados have changed",
+      width: viewWidth,
+      height: viewHeight,
+      mark: "area",
+      encoding: {
+        x: {"field": "year"},
+        y: {
+          "aggregate": "sum",
+          "field": "count", 
+          "title": "Number of avocados sold"
+        }, 
+        color: {
+          "field": "size", 
+          "scale": {"scheme": "greys"}
+        }
+      },
+      data: { name: 'table' },
+      "config": {}
+}
 
     return (
         <div className="w-75 px-sm-5 py-5">
@@ -289,7 +415,13 @@ const App = () => {
             </div>
             <div>
                 <h4>How have the number of sold avocados changed between the different sizes of avocados?</h4>
-                <p className="py-5">maybe do top 10 places for this and do stacked area?</p>
+                <p className="py-2">
+                  After analyzing how small and large avocados have been the most popular and observing how with the 
+                  data I have, the sales for avocados have declined from 2015 to 2018, I wanted to also see the change 
+                  in sales for avocados over time. This stacked area chart is meant to reveal if small and large avocados
+                  have always been relatively equal in the number of sales.
+                </p>
+                <VegaLite spec={visSixSpec} data={sizeOverTimeData} />
             </div>
             <div>
                 <h4>How has the number sold for the types of avocados changed throughout the years?</h4>
