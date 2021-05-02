@@ -26285,8 +26285,8 @@ try {
     console.log(avocados);
     const visOneSpec = {
       title: "How has the number of avocados sold changed throughout the years?",
-      width: 500,
-      height: 500,
+      width: viewWidth,
+      height: viewHeight,
       description: "Avocado sales over the years",
       data: {
         "url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"
