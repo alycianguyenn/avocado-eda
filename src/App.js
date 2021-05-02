@@ -364,7 +364,32 @@ const visEightSpec = {
   }
 }
 
-
+const visNineSpec = {
+  title: "How does price affect the number of avocados sold? For the different types of avocados?",
+  description: "Scatter plot of price vs avocados sold (considering type)",
+  width: viewWidth,
+  height: viewHeight,
+  data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+  mark: "circle",
+  encoding: {
+    x: {
+      field: "AveragePrice", 
+      type: "quantitative",
+      title:"Price"
+      },
+    y: {
+      field: "Total Volume", 
+      type: "quantitative",
+      title: "Number of avocados sold"
+      },
+    color: {
+      field: "type",
+      scale: {
+        scheme: "greys"
+      }
+    }
+  }
+}
 
     return (
         <div className="w-75 px-sm-5 py-5">
@@ -474,18 +499,13 @@ const visEightSpec = {
                     between price and sales for avocados. I assume that since we've seen that sales have decreased over time,
                     there should be a negative slope. 
                 </p>
-                 {/* VIS #6 */}
-                {/* scatter plot? */}
-                <p className="py-5">FILL IN LATER THIS IS BROKEN</p>
+                <h4>How does price affect the number of avocados sold? For the different types of avocados?</h4>
                 <p>
-                    Although this visualization showed a negative change over time and a negative relationship, I think that the
-                    prices being averaged is generalizing the price attribute too much, and price could be swayed by the how 
-                    big an avocado is- namely the size of the avocado. So, this leads me to another follow up question:
+                  In addition to checking the relationship between price and the number of avocados sold, I thought that 
+                  it would be interesting to see the relationship with the types of avocados as well, especially since
+                  organic avocados tend to be more expensive.
                 </p>
-                <h5 className="py-2">How has price affected the number of avocados sold for the different sizes of avocados?</h5>
-                    {/* VIS #7 */}
-                    {/* scatter with color? */}
-                <p className="py-5">FILL IN LATER THIS IS BROKEN</p>
+                <VegaLite spec={visNineSpec} />
             </div>
             <div>
                 <h4>Where are there the most sales for avocados?</h4>
