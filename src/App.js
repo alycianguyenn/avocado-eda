@@ -50,6 +50,9 @@ const App = () => {
             aggregate: "sum", 
             field: "Total Volume",
             title: "Number of avocados sold"
+          },
+          color: {
+            value: "#242a33"
           }
         }
       }
@@ -72,7 +75,6 @@ const App = () => {
     }
 
     const visTwoSpec = {
-            // $schema: "https://vega.github.io/schema/vega-lite/v5.json",
             title: "What is the most popular size of avocado?",
             description: "A simple bar chart",
             width: viewWidth,
@@ -83,7 +85,10 @@ const App = () => {
               y: {
                 field: "count", 
                 type: "quantitative",
-                title: "Number of avocados sold",
+                title: "Number of avocados sold"
+              },
+              color: {
+                value: "#242a33"
               }
             },
             data: { name: 'table' },
@@ -111,12 +116,14 @@ const App = () => {
             field: "Total Volume", 
             type: "quantitative",
             title: "Number of avocados sold",
+          },
+          color: {
+            value: "#242a33"
           }
         }
       }
     
     const visFourSpec =  {
-        // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         title: "How does the number of avocados sold change throughout a year?",
         width: viewWidth,
         height: viewHeight,
@@ -134,12 +141,15 @@ const App = () => {
             aggregate: "sum", 
             field: "Total Volume",
             title: "Number of avocados sold"
+          },
+          color: {
+            value: "#242a33"
           }
         }
       }
 
       const visFiveSpec = {
-        title: "How has price affected the number of avocados sold?",
+        title: "How has price changed over time?",
         width: viewWidth,
         height: viewHeight,
         description: "Avocado prices over the years",
@@ -156,6 +166,9 @@ const App = () => {
             aggregate: "average", 
             field: "AveragePrice",
             title: "Average Price for a Single Avocado (dollars)"
+          },
+          color: {
+            value: "#242a33"
           }
         }
       }
@@ -578,7 +591,7 @@ const visNineSpec = {
             </div>
             <div>
                 <h4>Where are there the most sales for avocados?</h4>
-                <p className="py-5">
+                <p className="py-2">
                   It's very interesting to see where things come from. Inspired by the other questions considering
                   total number of avocados sold and another attribute, this question is in attempt to analyze sales over time 
                   for different regions. Due to how there are so many regions, only the top 10 regions will be used here. The
@@ -609,7 +622,7 @@ const visNineSpec = {
                   have always been relatively equal in the number of sales.
                 </p>
                 {/* VIS #6 */}
-                {/* <VegaLite spec={visSixSpec} data={sizeOverTimeData} /> */}
+                <VegaLite spec={visSixSpec} data={sizeOverTimeData} />
                 <div> Variables used:
                   <ul>
                     <li>
@@ -717,6 +730,24 @@ const visNineSpec = {
             it seems that the conventional avocado will continue to be the most popular avocado type bought, but this 
             may be due to how organic avocados tend to be more expensive.
             </p>
+            <h3>Feedback Incorporation</h3>
+            <h4>Feedback recieved:</h4>
+            <ul>
+              <li>Consider making the first bar plot logarithmic on the y-axis to help differentiate the 2 bar charts 
+                used in a couple of the intitial questions visualizations</li>
+              <li>Consider making most visualizations in greyscale to help with clarity</li>
+              <li>Have more consistent naming conventions throughout the visualizations </li>
+            </ul>
+            <h4>Updates made:</h4>
+            <ul>
+              <li>Made most of my visualizations in greyscale - I believe that this helped to simplify the look of my 
+                visualizations and made it easier to look at</li>
+              <li>Tried out making the y-axis logarithmic on the y-axis, but I thought that the way it was currently 
+                is more straightforward for an individual to understand, so I left it the same</li>
+              <li>Made all of my naming conventions the same (especially for the label in place of Total Volume)</li>
+            </ul>
+            <span className="text-uppercase font-weight-bold">for images of visualizations, please refer to the
+            src/img folder on my github</span>
         </div>
     ); 
 };
