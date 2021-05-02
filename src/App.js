@@ -14,25 +14,8 @@ const App = () => {
       );
 
     console.log(avocados);
-    // csv('https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv')
-    //     .then(data => console.log(data));
 
-    // price data
-    getDataTest = avocados.map((d) => {
-        return +d.AveragePrice;
-    });
-
-    // DATA TRANSFORMATION FOR VIS # 1 ---- How has the number of avocados sold changed throughout the years?
-    // yearData = avocados.map((d) => {
-    //     return +d.year;
-    // });
-
-    // // volume data 
-    // volumeData = avocados.map((d) => {
-    //     return +d["Total Volume"];
-    // });
     const visOneSpec = {
-        // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         title: "How has the number of avocados sold changed throughout the years?",
         width: 500,
         height: 500,
@@ -95,8 +78,6 @@ const App = () => {
             "config": {}
     }
 
-    // DATA TRANSFORMATION + SPEC FOR VIS # 3 ---- What type of avocado was sold most from 2015-2017?
-    // need types of avocado (type column)
     const visThreeSpec = {
         title: "What type of avocado was sold most?",
         description: "A simple bar chart",
@@ -173,8 +154,7 @@ const App = () => {
         }
       }
 
-    // stacked area chart with sizes data transformation
-   
+    // VIS #6 DATA TRANSFORMATION 
     const groupBy = () => {
       return avocados.reduce((result, currentValue) => {
         (result[currentValue.year] = result[currentValue.year] || []).push(
