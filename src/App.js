@@ -171,12 +171,11 @@ const App = () => {
     const groupedByYear = groupBy();
     console.log(groupedByYear);
 
-    // // // returns array with year counts for each size
-    // // // 0: small
-    // // // 1: large
-    // // // 2: xlarge
+    // // // // returns array with year counts for each size
+    // // // // 0: small
+    // // // // 1: large
+    // // // // 2: xlarge
     const getYearCountInfo = (yearChoice) => {
-      // yearData = [];
       grouped_data = groupedByYear[yearChoice];
       sum_small_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4046]) , 0 ));
       sum_large_year = Math.round(grouped_data.reduce((a,v) =>  a = a + parseFloat(v[4225]) , 0 ));
@@ -271,19 +270,45 @@ const App = () => {
       height: viewHeight,
       mark: "area",
       encoding: {
-        x: {"field": "year"},
+        x: {
+          field: "year"
+        },
         y: {
-          "aggregate": "sum",
-          "field": "count", 
-          "title": "Number of avocados sold"
+          aggregate: "sum",
+          field: "count", 
+          title: "Number of avocados sold"
         }, 
         color: {
-          "field": "size", 
-          "scale": {"scheme": "greys"}
+          field: "size", 
+          scale: {"scheme": "greys"}
         }
       },
       data: { name: 'table' },
       "config": {}
+}
+
+const visSevenSpec = {
+  title: "How has the number sold for the types of avocados changed throughout the years?",
+  width: viewWidth,
+  height: viewHeight,
+  description: "Stacked area chart showing change in sales for different types of avocados",
+  data: {"url": "https://raw.githubusercontent.com/alycianguyenn/avocado-eda/main/avocado.csv"},
+  mark: "area",
+  encoding: {
+    x: {
+      field: "Date", 
+      timeUnit: "year",
+      type: "temporal"},
+    y: {
+      aggregate: "sum",
+      field: "Total Volume", 
+      type: "quantitative"},
+    color: {
+      field: "type", 
+      type: "nominal",
+      scale: {"scheme": "greys"}
+    }
+  }
 }
 
     return (
@@ -425,7 +450,12 @@ const App = () => {
             </div>
             <div>
                 <h4>How has the number sold for the types of avocados changed throughout the years?</h4>
-                <p className="py-5">FILL IN LATER - MAYBE LINE CHART WITH DIFFERENT COLORS</p>
+                <p className="py-2">
+                  In addition to seeing how the sales for different sizes of avocados have changed, 
+                  I also wanted to see how the sales for the different types of avocados have changed, to
+                  see if there was a time when organic avocados had a noticeably high number of sales. 
+                </p>
+                <VegaLite spec={visSevenSpec}/>
             </div>
         </div>
     ); 
